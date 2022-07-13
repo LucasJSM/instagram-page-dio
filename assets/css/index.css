@@ -11,9 +11,17 @@
 }
 
 :root {
-  --bg-white-color: rgb(243, 243, 243);
-  --lightblue: rgb(0, 149, 246);
+  --bg-color: rgb(243, 243, 243);
+  --bg-light-color: rgb(254, 252, 252);
+
+  --primary-color: rgb(0, 149, 246);
+  --primary-color-blur: rgba(0, 148, 246, 0.815);
+
   --lightgray: rgb(160, 160, 160);
+  --logo-color: #231e1f;
+  --black-color: rgb(0, 0, 0);
+
+  --border-color: rgb(211, 211, 211);
 }
 
 body {
@@ -22,7 +30,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background-color: var(--bg-white-color);
+  background-color: var(--bg-color);
 
   display: flex;
   justify-content: center;
@@ -66,20 +74,35 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid rgb(211, 211, 211);
+
+  background-color: var(--bg-light-color);
+  border: 1px solid var(--border-color);
 
   width: 100%;
   padding: 1.3rem 0;
 }
 
-/* ============== CONTINUE AS OR REMOVE ============== */
-.group:nth-child(1) {
-  min-height: 19rem; 
+.mode-container {
+  align-self: flex-end;
+  margin-right: 1rem;
+  cursor: pointer;
 }
 
-.instagram-logo {
-  height: 3rem;
+/* ============== CONTINUE AS OR REMOVE ============== */
+.group:nth-child(1) {
+  min-height: 19rem;
+
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+.instagram-logo svg {
+  width: 14rem;
+  height: 4rem;
+}
+
+.instagram-logo svg path {
+  fill: var(--logo-color);
 }
 
 .profile-photo {
@@ -98,23 +121,41 @@ body {
 /* ============== LOGIN OR LOGGOUT ============== */
 .instagram-login {
   color: #fff;
-  background-color: var(--lightblue);
+  background-color: var(--primary-color);
+
   padding: 8px;
   border-radius: 4px;
-}
-
-.instagram-loggout {
-  color: var(--lightblue);
   margin-top: 1rem;
 }
 
+.instagram-login:hover {
+  background-color: var(--primary-color-blur);
+}
+
+.instagram-loggout {
+  color: var(--primary-color);
+  margin-top: 1rem;
+}
+
+.instagram-loggout:hover {
+  color: var(--primary-color-blur);
+}
+
 /* ============== NOT USER ============== */
+.group:nth-child(2) {
+  margin-top: 1rem;
+}
+
 .not-user {
   color: var(--lightgray);
 }
 
 .link-blue {
-  color: var(--lightblue);
+  color: var(--primary-color);
+}
+
+.link-blue:hover {
+  color: var(--primary-color-blur);
 }
 
 /* ============== GET THE APP ============== */
@@ -126,6 +167,10 @@ body {
 
   width: 100%;
   padding: 1.3rem 0;
+}
+
+.get-app-text {
+  color: var(--black-color);
 }
 
 .download-buttons {
