@@ -4,10 +4,11 @@
   margin: 0;
 
   box-sizing: border-box;
-  
+
   font-size: 14px;
   text-decoration: none;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 :root {
@@ -35,13 +36,15 @@ body {
 
   display: flex;
   justify-content: center;
+
+  transition: background 0.2s linear;
 }
 
 .instagram-wrapper {
   display: flex;
   align-items: center;
   justify-content: start;
-  
+
   width: 60%;
   height: 100vh;
 }
@@ -51,7 +54,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   width: 50%;
 }
 
@@ -84,65 +87,62 @@ body {
 }
 
 .mode-container {
-  display: block;
-  position: relative;
   align-self: flex-end;
-  
+
   cursor: pointer;
 
   margin-right: 2rem;
 }
 
-.mode-container input[type="checkbox"] {
+.toggle-mode {
   opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.mode-container .mark {
   position: absolute;
-  border-radius: 2px;
-  background-color: #eee;
-  
-  top: 0;
-  left: 0;
-  
-  width: 15px;
-  height: 15px;
-
-  padding: 1px;
 }
 
-.mode-container:hover input ~ .mark {
-  background-color: #ccc;
+.toggle-mode-label {
+  background-color: var(--bg-color);
+  border-radius: 50px;
+  border: 0.5px solid var(--border-color);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+
+  padding: 5px;
+  width: 50px;
+  height: 26px;
+
+  transform: scale(1.3);
 }
 
-.mode-container input:checked ~ .mark {
-  background-color: var(--primary-color);
-}
-
-.mode-container .mark:after {
-  content: "";
+.toggle-mode-label .ball {
+  background-color: var(--text-color);
   position: absolute;
-  display: none;
 
-  left: 5.5px;
-  top: 4px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
 
-  width: 1.5px;
-  height: 4px;
+  width: 20px;
+  height: 20px;
 
-  border: solid white;
-  border-width: 0 2.5px 2.5px 0;
-
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+  transform: translateX(0px);
+  transition: transform 0.2s ease-in-out;
 }
 
-.mode-container input:checked ~ .mark:after {
-  display: block;
+.toggle-mode:checked + .toggle-mode-label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
 }
 
 /* ============== CONTINUE AS OR REMOVE ============== */
@@ -247,25 +247,25 @@ body {
 }
 
 .download-app:nth-child(1) {
-  background-image: url('./../img/applestore-button.png');
+  background-image: url("./../img/applestore-button.png");
   border: none;
   border-radius: 10px;
 }
 
 .download-app:nth-child(2) {
-  background-image: url('./../img/googleplay-button.png');
+  background-image: url("./../img/googleplay-button.png");
   border: none;
   border-radius: 10px;
 }
 
 /* ============== RESPONSIVE ============== */
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
   .instagram-wrapper {
     width: 90%;
   }
 }
 
-@media(max-width: 650px) or (max-height: 690px) {
+@media (max-width: 650px) or (max-height: 690px) {
   body {
     background-color: var(--bg-color);
   }

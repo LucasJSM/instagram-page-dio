@@ -16,10 +16,20 @@
       </section>
       <section class="continue">
         <div class="group">
-          <label class="mode-container" id="modeContainer">
-            <input type="checkbox" class="toggle-mode" id="toggleMode" name="toggle-mode" />
-            <span class="mark"></span>
-          </label>
+          <div class="mode-container" id="modeContainer">
+            <input
+              type="checkbox"
+              class="toggle-mode"
+              id="toggleMode"
+              name="toggle-mode"
+            />
+
+            <label for="toggleMode" class="toggle-mode-label">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <div class="ball"></div>
+            </label>
+          </div>
           <a class="instagram-logo" href="https://www.instagram.com/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,5 +85,9 @@
     </main>
 
     <script src="./assets/js/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/312b892786.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
