@@ -20,7 +20,9 @@ const darkModeColors = {
 mode.addEventListener("change", () => {
   const isChecked = mode.checked;
 
-  isChecked ? changeTheme(darkModeColors) : changeTheme(lightModeColors);
+  isChecked ? setTimeout(() => changeTheme(darkModeColors), 100) : setTimeout(() => changeTheme(lightModeColors), 100);
+  
+  clearTimeout();
 });
 
 function changeTheme(theme) {

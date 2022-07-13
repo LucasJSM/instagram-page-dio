@@ -19,7 +19,8 @@
 
   --lightgray: rgb(160, 160, 160);
   --logo-color: #231e1f;
-  --black-color: rgb(0, 0, 0);
+  --logo-color-blur: rgba(36, 30, 32, 0.815);
+  --text-color: rgb(0, 0, 0);
 
   --border-color: rgb(211, 211, 211);
 }
@@ -51,11 +52,11 @@ body {
   align-items: center;
   justify-content: center;
   
-  width: 50%; 
+  width: 50%;
 }
 
 .instagram-phone img {
-  height: 50rem;
+  height: 40rem;
 }
 
 /* ============== CONTINUE ============== */
@@ -83,9 +84,65 @@ body {
 }
 
 .mode-container {
+  display: block;
+  position: relative;
   align-self: flex-end;
-  margin-right: 1rem;
+  
   cursor: pointer;
+
+  margin-right: 2rem;
+}
+
+.mode-container input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mode-container .mark {
+  position: absolute;
+  border-radius: 2px;
+  background-color: #eee;
+  
+  top: 0;
+  left: 0;
+  
+  width: 15px;
+  height: 15px;
+
+  padding: 1px;
+}
+
+.mode-container:hover input ~ .mark {
+  background-color: #ccc;
+}
+
+.mode-container input:checked ~ .mark {
+  background-color: var(--primary-color);
+}
+
+.mode-container .mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+
+  left: 5.5px;
+  top: 4px;
+
+  width: 1.5px;
+  height: 4px;
+
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.mode-container input:checked ~ .mark:after {
+  display: block;
 }
 
 /* ============== CONTINUE AS OR REMOVE ============== */
@@ -170,7 +227,7 @@ body {
 }
 
 .get-app-text {
-  color: var(--black-color);
+  color: var(--text-color);
 }
 
 .download-buttons {
@@ -190,27 +247,31 @@ body {
 }
 
 .download-app:nth-child(1) {
-  background-image: url('./../img/apple-button.png');
+  background-image: url('./../img/applestore-button.png');
+  border: none;
+  border-radius: 10px;
 }
 
 .download-app:nth-child(2) {
   background-image: url('./../img/googleplay-button.png');
+  border: none;
+  border-radius: 10px;
 }
 
-
+/* ============== RESPONSIVE ============== */
 @media(max-width: 1024px) {
   .instagram-wrapper {
     width: 90%;
   }
 }
 
-@media(max-width: 650px) {
+@media(max-width: 650px) or (max-height: 690px) {
   body {
-    background-color: #fff;
+    background-color: var(--bg-color);
   }
 
   .group {
-    border: 1px solid transparent;
+    border: 1px solid var(--border-color);
   }
 
   .instagram-wrapper {
@@ -223,5 +284,14 @@ body {
 
   .continue {
     width: 100%;
+  }
+
+  .download-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .download-app {
+    margin: 1rem;
   }
 }
